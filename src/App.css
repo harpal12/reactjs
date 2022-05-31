@@ -21,17 +21,34 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: wgreen;
+  color: white;
 }
 
 .App-link {
-  color: #fb6161;
+  color: #61dafb;
 }
 
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
+}
+.submit-form {
+  max-width: 300px;
+  margin: auto;
+}
+.edit-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 

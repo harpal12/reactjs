@@ -11,7 +11,7 @@ export default class Tutorial extends Component {
     this.deleteTutorial = this.deleteTutorial.bind(this);
     this.state = {
       currentTutorial: {
-        id: props.id,
+        id: null,
         title: "",
         description: "",
         published: false
@@ -62,7 +62,6 @@ export default class Tutorial extends Component {
       description: this.state.currentTutorial.description,
       published: status
     };
-    console.log(this.state.currentTutorial.id)
     TutorialDataService.update(this.state.currentTutorial.id, data)
       .then(response => {
         this.setState(prevState => ({
@@ -78,7 +77,6 @@ export default class Tutorial extends Component {
       });
   }
   updateTutorial() {
-    console.log(  this.state.currentTutorial.id)
     TutorialDataService.update(
       this.state.currentTutorial.id,
       this.state.currentTutorial
@@ -97,18 +95,16 @@ export default class Tutorial extends Component {
     TutorialDataService.delete(this.state.currentTutorial.id)
       .then(response => {
         console.log(response.data);
-        this.props.history.push('/tutorial')
+        this.props.history.push('/tutorials')
       })
       .catch(e => {
         console.log(e);
       });
-  }render() {
-   
-
+  }
+  render() {
     const { currentTutorial } = this.state;
     return (
       <div>
-      {console.log("bdfghfghfhjg")}
         {currentTutorial ? (
           <div className="edit-form">
             <h4>Tutorial</h4>
@@ -142,28 +138,28 @@ export default class Tutorial extends Component {
             </form>
             {currentTutorial.published ? (
               <button
-                className="badge badge-primary mr-2"
+                //className="badge badge-primary mr-2"
                 onClick={() => this.updatePublished(false)}
               >
                 UnPublish
               </button>
             ) : (
               <button
-                className="badge badge-primary mr-2"
+                //className="badge badge-primary mr-2"
                 onClick={() => this.updatePublished(true)}
               >
                 Publish
               </button>
             )}
             <button
-              className="badge badge-danger mr-2"
+             // className="badge badge-danger mr-2"
               onClick={this.deleteTutorial}
             >
               Delete
             </button>
             <button
               type="submit"
-              className="badge badge-success"
+             // className="badge badge-success"
               onClick={this.updateTutorial}
             >
               Update
